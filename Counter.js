@@ -1,8 +1,20 @@
 /*eslint-disable no-unused-vars */
 import React, { Component, PropTypes } from 'react'
 
-const Counter = ({ value, onIncrement, onDecrement }) =>
+const Counter = ({ value, token, onLogin, onLogout, onIncrement, onDecrement, onIncrementAsync, onAsk }) =>
       <div>
+        <button onClick={onAsk}>
+          Request to yesno.wtf
+        </button>
+        {' '}
+        <button onClick={ Boolean(token) ? onLogout : onLogin }>
+          { Boolean(token) ? 'Logout' : 'Login' }
+        </button>
+        {' '}
+        <button onClick={onIncrementAsync}>
+          Increment after 1 second
+        </button>
+        {' '}
         <button onClick={onIncrement}>
           Increment
         </button>
